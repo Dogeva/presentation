@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изменение фотографии</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #fullScreenPhoto {
+            width: 100vw; 
+            height: 100vh; 
+            object-fit: cover; 
+        } 
+
+        button {
+            padding: 15px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            background-color: #000000; 
+            color: white;
+            cursor: pointer;
+        }
+        #photo {
+            max-width: 100%;
+            height: 100%;
+        }
+    </style>
+    <!-- Подключение SweetAlert2 (вставьте ссылку на актуальную версию) -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<img id="photo" src="goose_with_haircut.jpg" alt="Initial Photo">
+
+<button onclick="changePhoto()">Причесать гуся</button>
+
+<script>
+    function changePhoto() {
+        // Получаем ссылку на элемент с фотографией
+        var photoElement = document.getElementById("photo");
+
+        // Меняем фотографию
+        photoElement.src = "goose.jpg";
+
+        // Создаем предупреждающее диалоговое окно с использованием SweetAlert2
+        Swal.fire({
+            title: 'Ой! Кажется, гусю это не понравились!',
+            text: 'Это предупреждение, теперь оглядывайтесь на улице.',
+            icon: 'warning',
+            confirmButtonText: 'Молить о пощаде'
+        });
+    }
+</script>
+
+</body>
+</html>
